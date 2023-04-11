@@ -36,9 +36,7 @@ if(!empty($_POST['username']) && !empty($_POST['name']) && !empty($_POST['email'
 </head>
 <body>
 <header>
-    <nav class="navbar">
         <h1>Acceso Web</h1>
-    </nav>
 </header>
 <div class="container">
     <h2>Introduce tus credenciales de estudiante</h2>

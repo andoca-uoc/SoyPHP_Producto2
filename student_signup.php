@@ -71,5 +71,3 @@ if (!empty($_POST['username']) && !empty($_POST['pass']) && !empty($_POST['name'
     <p>copyright</p></p>
 </footer>
 </html>
-<!--
-REVISAR todos los post a apellidos telephone nif etc
