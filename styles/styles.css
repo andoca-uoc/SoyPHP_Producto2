@@ -1,0 +1,120 @@
+html {
+    background-color: lightgoldenrodyellow;
+
+}
+
+body {
+    background-color: whitesmoke;
+    max-width: 870px;
+    margin: 0 auto;
+    display: compact;
+}
+
+header {
+    background-color: indianred;
+    width: auto;
+    height: 75px;
+    text-align: left;
+}
+
+footer {
+    background-color: whitesmoke;
+}
+
+}
+
+h1 {
+    color: #dd6667;
+    font-size: 30px;
+    text-shadow: 2px 2px #000000;
+}
+
+h2 {
+    color: #dd6667;
+    font-size: 30px;
+}
+
+ul {
+    border: none;
+    text-align: left;
+}
+
+li {
+    display: inline;
+}
+
+a {
+    outline: none;
+    text-decoration: none;
+    display: inline-block;
+
+    text-align: center;
+    line-height: 3;
+    color: black;
+}
+
+
+a:link, a:visited, a:focus {
+    background: whitesmoke;
+
+}
+
+a:hover {
+    background: orange;
+}
+
+a:active {
+    background: red;
+    color: white;
+}
+
+.container {
+    width: 600px;
+    background-color: whitesmoke;
+    text-align: center;
+    padding: 20px;
+    margin: 1em auto;
+    border-style: solid;
+    border-radius: 40px;
+    border-color: #dd6667 ;
+
+
+}
+
+.form {
+    color: black;
+    font-size: 18px;
+    text-align: left;
+}
+
+input {
+    width: 250px;
+    font-size: 18px;
+    padding: 10px;
+    margin: 5px 50px 10px 5px;
+    background-color: whitesmoke;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: #dd6667;
+}
+
+.submit {
+    width: 100px;
+    text-align: center;
+    font-size: 20px;
+
+    border-style: solid;
+    color: #000000;
+    background-color: #dd6667;
+    border-radius: 1px;
+
+}
+
+.submit:hover {
+    color: #000000;
+    background-color: greenyellow;
+}
+
+.navbar {
+
+}
