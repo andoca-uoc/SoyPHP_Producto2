@@ -1,28 +1,48 @@
 <?php
-
-session_start();
-
-$_SESSION["username"] = "username";
-
-$message = '';
-
-
-if(!empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['name']) && !empty($_POST['username'])){
-    $sql = "INSERT INTO students (username,name,email,password) VALUES (:username, :name, :email, :password); ";
-    $stmt = $connection->prepare($sql);
-    $stmt->bindParam(':username',$_POST['username']);
-    $stmt->bindParam(':name',$_POST['name']);
-    $stmt->bindParam(':email',$_POST['email']);
-    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
-    $stmt->bindParam(':password',$_POST['password']);
-
-    if ($stmt->execute()) {
-        $message = "Usuario creado correctamente";
-    } else {
-        $message = "Usuario no creado";
-    }
-
-}
+include('session_student.php');
 ?>
+
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="styles/styles.css">
+    <title> Modificar perfíl </title>
+    <meta charset="utf-8">
+</head>
+<body>
+<header>
+    <h1>Acceso Web</h1>
+</header>
+<nav>
+    <ul>
+        <li><a class="boxnav" href="panel_admin.php">Panel</a></li>
+    </ul>
+</nav>
+<div class="container2">
+    <h3>Cursos</h3>
+    <ul>
+        <li><a class="box" href="course_create.php">Crear</a></li>
+        <li><a class="box" href="course_modify.php">Modificar</a></li>
+        <li><a class="box" href="course_delete.php">Eliminar</a></li>
+    </ul>
+</div>
+<div class="container2">
+    <h3>Asignaturas</h3>
+    <ul>
+        <li><a class="box" href="#">Crear</a></li>
+        <li><a class="box" href="#">Modificar</a></li>
+        <li><a class="box" href="#">Eliminar</a></li>
+    </ul>
+</div>
+<div class="container2">
+    <h3>Profesores</h3>
+    <ul>
+        <li><a class="box" href="#">Crear</a></li>
+        <li><a class="box" href="#">Modificar</a></li>
+        <li><a class="box" href="#">Eliminar</a></li>
+    </ul>
+</div>
+</body>
+</html>
+
 
 

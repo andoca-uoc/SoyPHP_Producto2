@@ -1,3 +1,6 @@
+<?php
+include('session_admin.php');
+?>
 
 <html>
 <head>
