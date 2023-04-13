@@ -1,26 +1,28 @@
 <?php
 
-require 'conexion.php';
+require  'config.php';
+session_start();
 
-$message = '';
+if($_SERVER["REQUEST_METHOD"] == "POST") {
+    //username y password sent from form
 
-if(!empty($_POST['username']) && !empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['password'])){
-    $sql = "INSERT INTO students (username,name,email,password) VALUES (:username, :name, :email, :password); ";
-    $stmt = $connection->prepare($sql);
-    $stmt->bindParam(':username',$_POST['username']);
-    $stmt->bindParam(':name',$_POST['name']);
-    $stmt->bindParam(':email',$_POST['email']);
-    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
-    $stmt->bindParam(':password',$_POST['password']);
+    $myusername = mysqli_real_escape_string($db,$_POST['username']);
+    $mypassword = mysqli_real_escape_string($db,$_POST['password']);
 
-    header("location:login.php");
+    $sql = "SELECT username FROM students WHERE username = '$myusername' and passcode = '$mypassword'";
+    $result = mysqli_query($db,$sql);
+    $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+    $active = $row['active'];
 
-    if ($stmt->execute()) {
-        $message = "Alumno creado correctamente";
+    $count = mysqli_num_rows($result);
+
+    if($count == 1) {
+        $_SESSION['username'] = $myusername;
+
+        header("location: panel_main.php");
     } else {
-        $message = "Alumno no creado";
+        $error = "Tu login o password es incorrecto";
     }
-
 }
 
 ?>

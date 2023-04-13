@@ -1,20 +1,27 @@
 <?php
 
-require  'conexion.php';
-
+require  'config.php';
 session_start();
 
-if(!empty($_POST['email']) && !empty($_POST['password'])){
-    $cons = $connection->prepare('SELECT username,name,email,password FROM users_admin WHERE email=:email');
-    $cons->bindParam(':email', $_POST['email']);
-    $cons->execute();
-    $results = $cons->fetch(PDO::FETCH_ASSOC);
+if($_SERVER["REQUEST_METHOD"] == "POST") {
+    //username y password sent from form
 
-    if(count($results) > 0 && ($_POST['password'] == $results['password'])){
-        $_SESSION['username'] = $results['username'];
-        header('Location: panel_admin.php');
+    $myusername = mysqli_real_escape_string($db,$_POST['username']);
+    $mypassword = mysqli_real_escape_string($db,$_POST['password']);
+
+    $sql = "SELECT id_user_admin FROM users_admin WHERE username = '$myusername' and passcode = '$mypassword'";
+    $result = mysqli_query($db,$sql);
+    $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+    $active = $row['active'];
+
+    $count = mysqli_num_rows($result);
+
+    if($count == 1) {
+        $_SESSION['id_user_admin'] = $myusername;
+
+        header("location: panel_admin.php");
     } else {
-        $message = 'El usuario y/o contraseña son incorrectos';
+        $error = "Tu login o password es incorrecto";
     }
 }
 

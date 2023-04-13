@@ -1,6 +1,3 @@
-<?php
-
-?>
 
 <html>
 <head>
@@ -20,9 +17,9 @@
 <div class="container2">
     <h3>Cursos</h3>
     <ul>
-        <li><a class="box" href="#">Crear</a></li>
-        <li><a class="box" href="#">Modificar</a></li>
-        <li><a class="box" href="#">Eliminar</a></li>
+        <li><a class="box" href="course_create.php">Crear</a></li>
+        <li><a class="box" href="course_modify.php">Modificar</a></li>
+        <li><a class="box" href="course_delete.php">Eliminar</a></li>
     </ul>
 </div>
 <div class="container2">
