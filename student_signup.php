@@ -1,29 +1,31 @@
 <?php
-
-require_once 'conexion.php';
-
-$message = '';
-
 session_start();
+include('config.php');
+include('functions.php');
 
-if (!empty($_POST['username']) && !empty($_POST['pass']) && !empty($_POST['name']) && !empty($_POST['surname']) && !empty($_POST['email']) && !empty($_POST['nif']) && !empty($_POST['telephone'])) {
-    $sql = "INSERT INTO users (username,password,name,surname,email,nif,telephone) VALUES (:username,:password,:name,:surname:email,:nif,:telephone); ";
-    $stmt = $connection->prepare($sql);
-    $stmt->bindParam(':username', $_POST['username']);
-    $stmt->bindParam(':pass', $_POST['pass']);
-    $stmt->bindParam(':name', $_POST['name']);
-    $stmt->bindParam(':surname', $_POST['surname']);
-    $stmt->bindParam(':email', $_POST['email']);
-    $stmt->bindParam(':nif', $_POST['nif']);
-    $stmt->bindParam(':telephone', $_POST['telephone']);
+if($_SERVER['REQUEST_METHOD'] == "POST")
+{
 
-    if ($stmt->execute()) {
-        $message = "Inserted Student";
-    } else {
-        $message = "Error! Try again!";
+    $username = $_POST['username'];
+    $pass = $_POST['pass'];
+    $email = $_POST['email'];
+    $name = $_POST['name'];
+    $surname = $_POST['surname'];
+    $telephone = $_POST['telephone'];
+    $nif = $_POST['nif'];
+
+    if(!empty($username) && !empty($pass) && !is_numeric($username))
+    {
+        $id = random_num(11);
+        $query = "INSERT INTO students (id,username,pass,email,name,surname,telephone,nif) values ('$id','$username','$pass','$email','$name','$surname','$telephone','$nif')";
+
+        mysqli_query($con, $query);
+
+    } else
+    {
+        echo "Please enter some valid information!";
     }
 }
-
 
 ?>
 
@@ -37,6 +39,12 @@ if (!empty($_POST['username']) && !empty($_POST['pass']) && !empty($_POST['name'
     <title>App Notas</title>
 </head>
 <body>
+
+<!-- Mostramos el mensaje creado anteriormente en caso de éxito o error -->
+<?php if(!empty($mensaje)) : ?>
+    <p id="s-exito"> <?= $mensaje ?> </p> <!-- Necesario usar la forma de <.?.= para mostrar el contenido de una variable -->
+<?php endif; ?>
+
 <header>
     <h1>Acceso Web</h1>
 </header>
@@ -46,7 +54,7 @@ if (!empty($_POST['username']) && !empty($_POST['pass']) && !empty($_POST['name'
         <label>Nombre de usuario:</label>
         <input type="text" name="username" placeholder="Introduce tu nombre de usuario">
         <label>Password:</label>
-        <input type="password" name="password" placeholder="Introduce tu contraseña"><br>
+        <input type="password" name="pass" placeholder="Introduce tu contraseña"><br>
         <label>Email:</label>
         <input type="text" name="email" placeholder="Introduce tu Email"><br>
         <label>Nombre:</label>
@@ -58,8 +66,7 @@ if (!empty($_POST['username']) && !empty($_POST['pass']) && !empty($_POST['name'
         <label>Teléfono:</label>
         <input type="text" name="telephone" placeholder="Introduce tu número de teléfono"><br>
 
-        <div class="enviar">
-            </br><input class="submit" type="submit" value="Enviar">
+        <input class="submit" type="submit" value="Enviar">
         </div>
     </form>
 </div>

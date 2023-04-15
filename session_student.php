@@ -1,5 +1,6 @@
 <?php
-include('config.php');
+
+include('conexion.php');
 session_start();
 
 $user_check = $_SESSION['student_login'];

@@ -1,5 +1,7 @@
-<?php
-include('session_student.php');
+<?php session_start();
+if(isset($_SESSION['username'])) {
+    header('location: student_login.php');
+}
 ?>
 
 <html>
@@ -14,7 +16,7 @@ include('session_student.php');
 </header>
 <nav>
     <ul>
-        <li><a class="boxnav" href="panel_admin.php">Panel</a></li>
+        <li><a class="boxnav" href="index.php">Panel</a></li>
     </ul>
 </nav>
 <div class="container2">
@@ -26,7 +28,7 @@ include('session_student.php');
     </ul>
 </div>
 <div class="container2">
-    <h3>Asignaturas</h3>
+    <h3>Clases</h3>
     <ul>
         <li><a class="box" href="#">Crear</a></li>
         <li><a class="box" href="#">Modificar</a></li>
@@ -40,6 +42,7 @@ include('session_student.php');
         <li><a class="box" href="#">Modificar</a></li>
         <li><a class="box" href="#">Eliminar</a></li>
     </ul>
+    <a href="logout_student.php">Salir de la sesión</a>
 </div>
 </body>
 </html>
