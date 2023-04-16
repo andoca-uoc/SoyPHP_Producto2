@@ -39,11 +39,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     <title>App Notas</title>
 </head>
 <body>
-
 <!-- Mostramos el mensaje creado anteriormente en caso de éxito o error -->
 <?php if(!empty($mensaje)) : ?>
     <p id="s-exito"> <?= $mensaje ?> </p> <!-- Necesario usar la forma de <.?.= para mostrar el contenido de una variable -->
 <?php endif; ?>
+
 
 <header>
     <h1>Acceso Web</h1>
@@ -67,6 +67,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
         <input type="text" name="telephone" placeholder="Introduce tu número de teléfono"><br>
 
         <input class="submit" type="submit" value="Enviar">
+
         </div>
     </form>
 </div>

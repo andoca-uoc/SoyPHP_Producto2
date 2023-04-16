@@ -1,32 +1,3 @@
-<?php
-
-require  'config.php';
-session_start();
-
-if($_SERVER["REQUEST_METHOD"] == "POST") {
-    //username y password sent from form
-
-    $myusername = mysqli_real_escape_string($db,$_POST['username']);
-    $mypassword = mysqli_real_escape_string($db,$_POST['password']);
-
-    $sql = "SELECT id_user_admin FROM users_admin WHERE username = '$myusername' and passcode = '$mypassword'";
-    $result = mysqli_query($db,$sql);
-    $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-    $active = $row['active'];
-
-    $count = mysqli_num_rows($result);
-
-    if($count == 1) {
-        $_SESSION['id_user_admin'] = $myusername;
-
-        header("location: panel_admin.php");
-    } else {
-        $error = "Tu login o password es incorrecto";
-    }
-}
-
-?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -44,21 +15,42 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 </header>
 <div class="container">
     <h2>Introduce tus credenciales de administrador</h2>
-    <?php if (!empty($message)): ?>
-        <p><?= $message ?></p>
-    <?php endif; ?>
-    <form class="form" action="login.php" method="post">
-        <label>Usuario:</label><br>
+
+    <form class="form" action="admin_login.php" method="POST">
+        <!-- -->
+        <label for="email">Cuenta:</label><br>
         <input type="text" name="email" placeholder="Introduce tu Email"><br>
         <!-- -->
-        <label>Contraseña:</label><br>
+        <label for="password">Contraseña:</label><br>
         <input type="password" name="password" placeholder="Introduce tu contraseña"></br>
         <!-- -->
-        <input class="submit" type="submit" value="Entra"><br>
+        <input class="submit" type="submit" name="login_adm" value="Entra"><br>
     </form>
+    <!-- -->
+    <?php
+    include 'config.php';
+    if(isset($_POST['login_adm'])) {
+        $id_user_admin=$_POST['id_user_admin'];
+        $password=$_POST['password'];
+
+    $select="SELECT * FROM users_admin WHERE id_user_admin='$id_user_admin' && password='$password'";
+    $query=mysqli_query($con,$select);
+    $row=mysqli_num_rows($query);
+    $fetch=mysqli_fetch_array($query);
+    if($row==1){
+        echo "succesful";
+
+        session_start();
+
+        header('location: panel_admin.php');
+        } else {
+        echo "invalid id/password";
+        }
+    }
+    ?>
 
     <ul>
-        <li><a href=""><u>¿No estás dado de alta?</u></a></li>
+        <li><a href="admin_signup.php"><u>¿No estás dado de alta?</u></a></li>
 
     </ul>
 
@@ -72,3 +64,4 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <p>copyright</p></p>
 </footer>
 </html>
+
