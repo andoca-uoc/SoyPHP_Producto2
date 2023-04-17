@@ -16,23 +16,25 @@
     <h1>Acceso Web</h1>
 </header>
 <body>
+<div class="container2h">
+    <h2>Login Estudiante</h2>
+</div>
 
-
-<div class="container">
-    <h2>Introduce tus credenciales de estudiante</h2>
+<div class="container2b">
+    <h2>Introduzca sus credenciales de estudiante</h2>
 
     <!-- Mensaje a imprimir en caso de que de error el login -->
     <?php if (!empty($message)): ?>
         <p><?= $message ?></p>
     <?php endif; ?>
     <form class="form" action="student_login.php" method="POST">
-        <label for="email">E-mail</label><br>
+        <label for="email">e-mail</label><br>
         <input type="email" name="email" placeholder="Introduce tu Email"><br>
         <!-- -->
-        <label for="pass">Contraseña</label><br>
+        <label for="pass">contraseña</label><br>
         <input type="password" name="password" placeholder="Introduce tu contraseña"></br>
         <!-- -->
-        <input class="submit" type="submit" name="login_std" value="Entra"><br>
+        <input class="submit" type="submit" name="login_std" value="Entra">
     </form>
     <?php
     include 'config.php';
@@ -56,15 +58,16 @@
         }
     }
     ?>
+
+</div>
     <ul>
         <li><a href="student_signup.php"><u>¿Aún no eres alumno?</u></a></li>
 
     </ul>
 
-</div>
+
 </body>
 <footer>
     <hr>
-    <p>copyright</p></p>
 </footer>
 </html>

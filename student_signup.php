@@ -41,34 +41,36 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 <body>
 <!-- Mostramos el mensaje creado anteriormente en caso de éxito o error -->
 <?php if(!empty($mensaje)) : ?>
-    <p id="s-exito"> <?= $mensaje ?> </p> <!-- Necesario usar la forma de <.?.= para mostrar el contenido de una variable -->
+    <p> <?= $mensaje ?> </p>
 <?php endif; ?>
 
 
 <header>
     <h1>Acceso Web</h1>
 </header>
-<div class="containersignup">
-    <h2>Crear Alumno</h2>
+<div class="container2h">
+    <h2>Registrese como estudiante</h2>
+</div>
+<div class="container2b">
     <form class="form" action="student_signup.php" method="post">
-        <label>Nombre de usuario:</label>
-        <input type="text" name="username" placeholder="Introduce tu nombre de usuario">
-        <label>Password:</label>
+        <label>usuario</label><br>
+        <input type="text" name="username" placeholder="Introduce tu nombre de usuario"><br>
+        <label>password</label><br>
         <input type="password" name="pass" placeholder="Introduce tu contraseña"><br>
-        <label>Email:</label>
+        <label>e-mail</label><br>
         <input type="text" name="email" placeholder="Introduce tu Email"><br>
-        <label>Nombre:</label>
-        <input type="text" name="name" placeholder="Introduce tu nombre">
-        <label>Apellidos:</label>
-        <input type="text" name="surname" placeholder="Introduce tu apellido"><br>
-        <label>nif:</label>
-        <input type="text" name="nif" placeholder="Introduce tu nif">
-        <label>Teléfono:</label>
+        <label>nombre</label><br>
+        <input type="text" name="name" placeholder="Introduce tu nombre"><br>
+        <label>apellidos</label><br>
+        <input type="text" name="surname" placeholder="Introduce tus apellidos"><br>
+        <label>nif</label><br>
+        <input type="text" name="nif" placeholder="Introduce tu nif"><br>
+        <label>teléfono</label><br>
         <input type="text" name="telephone" placeholder="Introduce tu número de teléfono"><br>
 
-        <input class="submit" type="submit" value="Enviar">
+        <input class="submit" type="submit" value="Enviar"><br>
 
-        </div>
+
     </form>
 </div>
 
@@ -76,6 +78,5 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 </body>
 <footer>
     <hr>
-    <p>copyright</p></p>
 </footer>
 </html>

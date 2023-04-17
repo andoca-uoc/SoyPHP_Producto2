@@ -1,8 +1,30 @@
-<?php session_start();
-if(isset($_SESSION['username'])) {
-    header('location: student_login.php');
+<?php
+
+session_start();
+
+$_SESSION["username"] = "username";
+
+$message = '';
+
+
+if(!empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['name']) && !empty($_POST['username'])){
+    $sql = "INSERT INTO students (username,name,email,password) VALUES (:username, :name, :email, :password); ";
+    $stmt = $connection->prepare($sql);
+    $stmt->bindParam(':username',$_POST['username']);
+    $stmt->bindParam(':name',$_POST['name']);
+    $stmt->bindParam(':email',$_POST['email']);
+    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+    $stmt->bindParam(':password',$_POST['password']);
+
+    if ($stmt->execute()) {
+        $message = "Usuario creado correctamente";
+    } else {
+        $message = "Usuario no creado";
+    }
+
 }
 ?>
+
 
 <html>
 <head>
@@ -16,17 +38,47 @@ if(isset($_SESSION['username'])) {
 </header>
 <nav>
     <ul>
-        <li><a class="boxnav" href="index.php">Panel</a></li>
+        <li><a class="boxnav" href="index.php">Home</a></li>
     </ul>
 </nav>
-<div class="container2">
-    <h3>Cursos</h3>
-    <ul>
-        <li><a class="box" href="course_create.php">Crear</a></li>
-        <li><a class="box" href="course_modify.php">Modificar</a></li>
-        <li><a class="box" href="course_delete.php">Eliminar</a></li>
-    </ul>
+
+<div class="container3">
+    <h2>Datos personales</h2>
+        <table  class="">
+            <thead>
+                <th>ID</th>
+                <th>usuario</th>
+                <th>e-mail</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Teléfono</th>
+                <th>nif</th>
+                <th>date_registered</th>
+            </thead>
+            <?php
+            if ($students && $sentencia->rowCount() > 0) {
+            foreach ($students as $fila) {
+            ?>
+                <tr>
+                    <td><?php echo $row['id']; ?></td>
+                    <td><?php echo $row['username']; ?></td>
+                    <td><?php echo $row['email']; ?></td>
+                    <td><?php echo $row['name']; ?></td>
+                    <td><?php echo $row['surname']; ?></td>
+                    <td><?php echo $row['telephone']; ?></td>
+                    <td><?php echo $row['nif']; ?></td>
+                    <td><?php echo $row['date_registered']; ?></td>
+
+                </tr>
+                <?php
+            }
+            }
+            ?>
+        </table>
 </div>
+
+
+
 <div class="container2">
     <h3>Clases</h3>
     <ul>
@@ -46,6 +98,4 @@ if(isset($_SESSION['username'])) {
 </div>
 </body>
 </html>
-
-
 

@@ -11,12 +11,14 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    if(!empty($username) && !empty($id_user_admin) && !is_numeric($username))
+    if(!empty($username) && !empty($email) && !is_numeric($username))
     {
-        $id_user_admin = random_num(11);
+        $id_user_admin = mt_rand(1, 100);
         $query = "INSERT INTO users_admin (id_user_admin,username,name,email,password) values ('$id_user_admin','$username','$name','$email','$password')";
 
         mysqli_query($con, $query);
+
+        $mensaje = "Registrado con éxito";
 
     } else
     {
@@ -36,21 +38,15 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     <title>App Notas</title>
 </head>
 <body>
-
-<!-- Mostramos el mensaje creado anteriormente en caso de éxito o error -->
-<?php if(!empty($mensaje)) : ?>
-    <p id="s-exito"> <?= $mensaje ?> </p> <!-- Necesario usar la forma de <.?.= para mostrar el contenido de una variable -->
-<?php endif; ?>
-
 <header>
     <h1>Acceso Web</h1>
 </header>
-<div class="containersignup">
-    <h2>Crear Administrador</h2>
+<div class="container2b">
+    <h2>Registrese como administrador</h2>
     <form class="form" action="admin_signup.php" method="post">
         <label>Nombre de usuario</label><br>
         <input type="text" name="username" placeholder="Introduce tu nombre de usuario"><br>
-        <label>Nombre:</label><br>
+        <label>Nombre</label><br>
         <input type="text" name="name" placeholder="Introduce tu nombre"><br>
         <label>Email:</label><br>
         <input type="text" name="email" placeholder="Introduce tu Email"><br>
@@ -58,7 +54,13 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
         <input type="password" name="password" placeholder="Introduce tu contraseña"><br>
 
         <input class="submit" type="submit" value="Enviar">
-</div>
+
+
+<!-- Mostramos el mensaje creado anteriormente en caso de éxito o error -->
+<?php if(!empty($mensaje)) : ?>
+    <p> <?= $mensaje ?> </p> <!-- Necesario usar la forma de <.?.= para mostrar el contenido de una variable -->
+<?php endif; ?>
+
 </form>
 </div>
 
@@ -66,6 +68,5 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 </body>
 <footer>
     <hr>
-    <p>copyright</p></p>
 </footer>
 </html>

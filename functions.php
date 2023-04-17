@@ -35,17 +35,4 @@ function check_login_admin($con)
     die;
 }
 
-function random_num($length)
-{
-    $text = "";
-    if($length < 11)
-    {
-        $length = 11;
-    }
-    $len = rand(10,$length);
-    for ($i=0; $i < $len; $i++) {
-        # code...
-        $text .= rand(0,9);
-    }
-    return $text;
-}
+

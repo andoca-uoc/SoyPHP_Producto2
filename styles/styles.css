@@ -1,17 +1,17 @@
 html {
-    background-color: lightgoldenrodyellow;
+    background-color: whitesmoke;
 }
 
 body {
+    max-width: 1280px;
     background-color: whitesmoke;
-    margin: 0 auto;
-    display: compact;
+    margin: auto;
 }
 
 header {
-    background-color: indianred;
-    width: auto;
-    height: 75px;
+    background-color: whitesmoke;
+    width: 1280px;
+    height: 50px;
     text-align: left;
 }
 
@@ -20,17 +20,18 @@ footer {
 }
 
 h1 {
-    color: #dd6667;
+    color: black;
     font-family: 'Point Panther';
     font-size: 30px;
-    text-shadow: 1px 1px #000000;
+    text-shadow: 1px 1px black;
     padding-top: 25px;
 }
 
 h2 {
-    color: #dd6667;
-    font-family: 'Point Panther';
-    font-size: 30px;
+    color: whitesmoke;
+    font-family:;
+    font-size: 18px;
+    text-align: center;
 }
 
 ul {
@@ -110,18 +111,47 @@ a:active {
     border-color: #dd6667 ;
 }
 
-.containersignup {
-    width: 1200px;
+.container2b {
+    width: 767px;
+    display: flex;
     background-color: whitesmoke;
-    padding: 20px;
     margin: 1em auto;
+    padding: 20px;
     border-style: solid;
-    border-radius: 10px;
-    border-color: #dd6667 ;
+    border-width: 1px;
+    border-radius: 5px;
+    border-color: #000000;
+
+
 }
 
+.container2h {
+    width: 767px;
+    color: white;
+    background-color: black;
+    padding: 20px;
+    margin: 0 auto;
+    border-style: solid;
+    border-width: 2px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-color: black;
+    text-align: center;
+}
+
+.container3 {
+    width: 767px;
+    height: 767px;
+    display: flex;
+    background-color: whitesmoke;
+    margin: 1em auto;
+    padding: 20px;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    border-color: #000000;
+
 .form {
-    font-family: 'Roboto';
     color: black;
     font-size: 18px;
     text-align: left;
@@ -129,32 +159,38 @@ a:active {
 
 input {
     width: 250px;
-    font-family: 'Roboto';
     font-size: 18px;
     padding: 10px;
     margin: 5px 50px 10px 5px;
     background-color: whitesmoke;
     border-style: solid;
     border-radius: 5px;
-    border-color: #dd6667;
+    border-color: black;
 }
 
 .submit {
     width: 100px;
     text-align: center;
     font-size: 20px;
-
     border-style: solid;
-    color: #000000;
-    background-color: #dd6667;
+    color: ghostwhite;
+    background-color: black;
     border-radius: 1px;
 }
 
 .submit:hover {
     color: black;
-    background-color: greenyellow;
+    background-color: ghostwhite;
+}
+
+label {
+    display: inline;
+    font-size: 12px;
+
 }
 
 hr {
-    border-color: #dd6667;
+    border-color: black;
+    border-width: 1px;
+    border-style: dot-dash;
 }

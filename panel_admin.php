@@ -1,5 +1,5 @@
 <?php
-include('session_admin.php');
+include('config.php');
 ?>
 
 <html>
