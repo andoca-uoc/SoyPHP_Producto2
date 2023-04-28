@@ -26,19 +26,19 @@ include('config.php');
     </ul>
 </div>
 <div class="container2">
-    <h3>Asignaturas</h3>
+    <h3>Clases</h3>
     <ul>
-        <li><a class="box" href="#">Crear</a></li>
-        <li><a class="box" href="#">Modificar</a></li>
-        <li><a class="box" href="#">Eliminar</a></li>
+        <li><a class="box" href="class_create.php">Crear</a></li>
+        <li><a class="box" href="class_modify.php">Modificar</a></li>
+        <li><a class="box" href="class_delete.php">Eliminar</a></li>
     </ul>
 </div>
 <div class="container2">
     <h3>Profesores</h3>
     <ul>
-        <li><a class="box" href="#">Crear</a></li>
-        <li><a class="box" href="#">Modificar</a></li>
-        <li><a class="box" href="#">Eliminar</a></li>
+        <li><a class="box" href="teacher_create.php">Crear</a></li>
+        <li><a class="box" href="teacher_modify.php">Modificar</a></li>
+        <li><a class="box" href="teacher_delete.php">Eliminar</a></li>
     </ul>
 </div>
 </body>
