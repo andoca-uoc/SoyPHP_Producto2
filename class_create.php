@@ -1,7 +1,7 @@
 <?php
 
 include("config.php");
-if (isset($_POST['class'])) {
+if (isset($_POST['class_create'])) {
     $name = $_POST['name'];
     $color = $_POST['color'];
 
@@ -59,10 +59,10 @@ if (isset($_POST['class'])) {
                 <input type="date" name="día_clase" placeholder="Introduce el día de la clase">
                 <!-- -->
                 <label>Hora inicio:</label>
-                <input type="time" name="hora_inicio" placeholder="Hora de inicio de la clase">
+                <input type="time" name="date_start" placeholder="La hora de inicio de la clase">
                 <!-- -->
                 <label>Hora fin:</label>
-                <input type="time" name="hora_fin" placeholder="Hora que termina la clase">
+                <input type="time" name="date_end" placeholder="La hora que termina la clase">
 
                 <br><input class="submit" type="submit" value="Enviar">
         </form>

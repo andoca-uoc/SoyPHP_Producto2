@@ -1,11 +1,11 @@
 <?php
 
 session_start();
-include 'conexion.php';
+include 'config.php';
 
 $username = 'root';
-$password = '123456';
-$database = 'producto2';
+$password = '';
+$database = 'wordpress16';
 $connection = new PDO('mysql:host=localhost;dbname=wordpress16;',$username,$password);
 $id = $_GET['id'];
 $m = "SELECT * FROM students WHERE id = '$id'";
@@ -24,7 +24,7 @@ if(isset($_POST['editar'])){
 
     $actualiza = "UPDATE students SET username = '$username', password = '$password', email = '$email', name = '$name', surname = '$surname', telephone = '$telephone', nif = '$nif', data = '$data' WHERE id = '$id'";
     $actualizar = $connection->query($actualiza);
-    header("location:tablaalumnos.php");
+    header("location:students.php");
 }
 
 ?>

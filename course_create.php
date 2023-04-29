@@ -1,18 +1,21 @@
 <?php
 
 include("config.php");
-if (isset($_POST['class'])) {
+if (isset($_POST['course_create'])) {
     $name = $_POST['name'];
-    $color = $_POST['color'];
+    $description = $_POST['description'];
+    $date_start = $_POST['date_start'];
+    $date_end = $_POST['date_end'];
+    $active = $_POST['active'];
 
-    $query = "INSERT INTO class (name, color) VALUES ('$name', '$color')";
+    $query = "INSERT INTO course (name, description, date_start, date_end, active) VALUES ('$name', '$description', '$date_start', '$date_end', '$active')";
     $result = mysqli_query($con, $query);
 
     if(!$result) {
         die("Query failed");
     }
-    $_SESSION['message']='Clase creada';
-    header("Location: class_create.php");
+    $_SESSION['message']='Course creada';
+    header("Location: course_create.php");
 }
 
 ?>
@@ -35,7 +38,7 @@ if (isset($_POST['class'])) {
 </nav>
 <div class="container2">
         <h1>Crear Curso</h1>
-                <form action="course_create.php" method="post">
+                <form action="course_create.php" method="POST">
                         <h2>Información del curso</h2>
 
                         <label>Nombre</label><br>
