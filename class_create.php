@@ -2,10 +2,14 @@
 
 include("config.php");
 if($_SERVER['REQUEST_METHOD'] == "POST") {
+    $id_class = $_POST['id_class'];
+    $id_teacher = $_POST['id_teacher'];
+    $id_course = $_POST['id_course'];
+    $id_schedule = $_POST['id_schedule'];
     $name = $_POST['name'];
     $color = $_POST['color'];
 
-    $query = "INSERT INTO class (name, color) VALUES ('$name', '$color')";
+    $query = "INSERT INTO class (id_class, id_teacher, id_course, id_schedule, name, color) VALUES ('$id_class', '$id_teacher', '$id_course', '$id_schedule', '$name', '$color')";
     $result = mysqli_query($con, $query);
 
     if(!$result) {
@@ -47,7 +51,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                 <label>Color</label>
                 <input type="color" name="color"><br>
                 <!-- -->
-                <label>ID clase:</label>
+                <label>ID clase</label>
                 <option value="0">Elige un curso</option>
                  <!-- -->
                 <label>ID Profesor:</label>
@@ -55,14 +59,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                 <!-- -->
                 <br><h2>Horario</h2>
             <!-- -->
-                <label>Día:</label>
-                <input type="date" name="día_clase" placeholder="Introduce el día de la clase">
-                <!-- -->
-                <label>Hora inicio:</label>
-                <input type="time" name="date_start" placeholder="La hora de inicio de la clase">
-                <!-- -->
-                <label>Hora fin:</label>
-                <input type="time" name="date_end" placeholder="La hora que termina la clase">
+
+
 
                 <br><input class="submit" type="submit" value="Enviar">
         </form>

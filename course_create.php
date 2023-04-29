@@ -8,7 +8,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     $date_end = $_POST['date_end'];
     $active = $_POST['active'];
 
-    $query = "INSERT INTO course (name, description, date_start, date_end, active) VALUES ('$name', '$description', '$date_start', '$date_end', '$active')";
+    $query = "INSERT INTO courses (name, description, date_start, date_end, active) VALUES ('$name', '$description', '$date_start', '$date_end', '$active')";
     $result = mysqli_query($con, $query);
 
     if(!$result) {
@@ -50,12 +50,21 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                         <br><h2>Fecha del curso</h2>
 
                         <label>Fecha de inicio</label>
-                        <input type="date" name="fecha_inicio">
+                        <input type="date" name="date_start">
 
                         <label>Fecha de fin</label>
-                        <input type="date" name="fecha_fin">
+                        <input type="date" name="date_end">
 
-                        </br><input class="submit" type="submit" value="Enviar">
+                        <br>
+
+                        <label for="active">Activo</label>
+                        <input type="text" name="active" list="mySuggestion" />
+                        <datalist id="mySuggestion">
+                            <option>Sí</option>
+                            <option>No</option>
+                        </datalist>
+
+                        <br><br><input class="submit" type="submit" value="Enviar">
 
                 </form>
 </div>
