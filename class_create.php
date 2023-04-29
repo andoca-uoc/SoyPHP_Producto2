@@ -1,7 +1,7 @@
 <?php
 
 include("config.php");
-if (isset($_POST['class_create'])) {
+if($_SERVER['REQUEST_METHOD'] == "POST") {
     $name = $_POST['name'];
     $color = $_POST['color'];
 

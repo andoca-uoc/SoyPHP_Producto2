@@ -1,7 +1,7 @@
 <?php
 
 include("config.php");
-if (isset($_POST['course_create'])) {
+if($_SERVER['REQUEST_METHOD'] == "POST") {
     $name = $_POST['name'];
     $description = $_POST['description'];
     $date_start = $_POST['date_start'];

@@ -1,7 +1,7 @@
 <?php
 
 include("config.php");
-if (isset($_POST['teacher_create'])) {
+if($_SERVER['REQUEST_METHOD'] == "POST") {
     $name = $_POST['name'];
     $surname = $_POST['surname'];
     $nif = $_POST['nif'];
@@ -35,13 +35,7 @@ if (isset($_POST['teacher_create'])) {
         <li><a class="boxnav" href="panel_admin.php">Panel</a></li>
     </ul>
 </nav>
-<div id="wrapper">
-    <div id="contenedor">
-        <div id="contenido">
-
-
-
-            <div class="container2">
+<div class="container2">
                 <h2>Introduce los datos del nuevo profesor</h2>
                 <form class="form" action="teacher_create.php" method="POST">
                     <label>Nombre:</label>
@@ -61,9 +55,6 @@ if (isset($_POST['teacher_create'])) {
                         </br><input class="submit" type="submit" value="Enviar">
                     </div>
                 </form>
-            </div>
-        </div>
-    </div>
 </div>
 </body>
 </html>

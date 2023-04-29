@@ -9,9 +9,6 @@
 </head>
 <body>
 
-
-
-
 <header>
     <h1>Acceso Web</h1>
 </header>
@@ -62,7 +59,6 @@
 </div>
     <ul>
         <li><a href="student_signup.php"><u>¿Aún no eres alumno?</u></a></li>
-
     </ul>
 
 
