@@ -1,34 +1,43 @@
 html {
-    background-color: whitesmoke;
+
 }
 
 body {
     max-width: 1280px;
-    background-color: whitesmoke;
+    background-color: #ededed;
     margin: auto;
 }
 
 header {
-    background-color: whitesmoke;
     width: 1280px;
     height: 50px;
     text-align: left;
+    background-color: #ededed;
+    padding-bottom: 4em;
+
 }
 
-footer {
-    background-color: whitesmoke;
+.admin-header {
+
+}
+
+.student-header {
+    background-color: yellow;
+}
+
+nav {
+
 }
 
 h1 {
     color: black;
-    font-family: 'Point Panther';
     font-size: 30px;
     text-shadow: 1px 1px black;
-    padding-top: 25px;
+    padding-top: 20px;
 }
 
 h2 {
-    color: whitesmoke;
+    color: black;
     font-size: 18px;
     text-align: center;
 }
@@ -45,23 +54,26 @@ li {
 
 .box {
     border: 1px solid black;
-    border-color: #dd6667;
+    background-color: black;
+    color: white;
     height: 30px;
     width: 200px;
     margin-right: 0.5em;
     margin-top: 1em;
     margin-left: 5em;
+    padding: 0.9em 0.6em;
+    border-radius: 2px;
 }
 
 .boxnav {
     border: 1px solid black;
-    border-color: #dd6667;
     height: 30px;
-    width: 50px;
-    margin-right: 0.5em;
-    margin-top: 1em;
-    margin-left: 1em;
+    width: auto;
+    padding: 0.2em 0.6em;
+    margin: 0.2em 0.1em;
     text-align: center;
+    display: inline-block;
+    border-radius: 2px;
 }
 
 a {
@@ -70,21 +82,32 @@ a {
     display: inline-block;
     text-align: center;
     line-height: 3;
-    color: black;
+    color: white;
 }
 
 
 a:link, a:visited, a:focus {
-    background: whitesmoke;
+    background: black;
 }
 
 a:hover {
-    background: orange;
+    background: white;
+    color: black;
 }
 
 a:active {
-    background: red;
+    background: #dd6667;
     color: white;
+}
+
+.simple {
+    outline: none;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    line-height: 3;
+    background-color: ghostwhite;
+    color: black;
 }
 
 .container {
@@ -95,11 +118,11 @@ a:active {
     margin: 1em auto;
     border-style: solid;
     border-radius: 10px;
-    border-color: #dd6667 ;
+    border-color: black ;
 }
 
 .container2 {
-    width: 900px;
+    width: auto;
     height: fit-content;
     background-color: whitesmoke;
     text-align: left;
@@ -107,7 +130,7 @@ a:active {
     margin: 1em auto;
     border-style: solid;
     border-radius: 10px;
-    border-color: #dd6667 ;
+    border-color: #000000;
 }
 
 .container2b {
@@ -182,6 +205,43 @@ input {
 .submit:hover {
     color: black;
     background-color: ghostwhite;
+}
+
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr {
+    background-color: black;
+    color: #ffffff;
+    text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid black;
+}
+
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: black;
 }
 
 label {

@@ -27,17 +27,16 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     <meta charset="utf-8">
 </head>
 <body>
-
-<header>
-    <h1>Acceso Web</h1>
+<header class="admin-header">
+    <h1>Crear un curso</h1>
+    <nav>
+        <ul>
+            <li><a class="boxnav" href="index.php">Inicio</a></li>
+            <li><a class="boxnav" href="panel_admin.php">Panel</a></li>
+        </ul>
+    </nav>
 </header>
-<nav>
-    <ul>
-        <li><a class="boxnav" href="panel_admin.php">Panel</a></li>
-    </ul>
-</nav>
 <div class="container2">
-        <h1>Crear Curso</h1>
                 <form action="course_create.php" method="POST">
                         <h2>Información del curso</h2>
 
@@ -46,25 +45,21 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
 
                         <label>Descripción</label><br>
                         <input type="text" name="description" placeholder="Descripción del curso">
-
-                        <br><h2>Fecha del curso</h2>
-
-                        <label>Fecha de inicio</label>
-                        <input type="date" name="date_start">
-
-                        <label>Fecha de fin</label>
-                        <input type="date" name="date_end">
-
                         <br>
-
-                        <label for="active">Activo</label>
-                        <input type="text" name="active" list="mySuggestion" />
+                        <label for="active">Activo</label><br>
+                        <input type="" name="active" list="mySuggestion" />
                         <datalist id="mySuggestion">
                             <option>Sí</option>
                             <option>No</option>
                         </datalist>
+                        <hr>
+                        <h2>Fecha de inicio y fin del curso</h2>
 
-                        <br><br><input class="submit" type="submit" value="Enviar">
+                        <input type="date" name="date_start">
+
+                        <input type="date" name="date_end">
+                        <br><br>
+                        <input class="submit" type="submit" value="Crear">
 
                 </form>
 </div>

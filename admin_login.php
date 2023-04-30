@@ -61,8 +61,5 @@
 
     </ul>
 </body>
-<footer>
-    <hr>
-</footer>
 </html>
 

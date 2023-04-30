@@ -41,6 +41,36 @@ if (isset($_POST['update'])) {
         <label>ID clase:</label>
         <option value="0">Elige un curso</option>
         <!-- -->
+        <label>Elige un curso</label>
+        <input type="text" name="fullName" value="">
+        <select name="courseName">
+                <option value="">Selecciona un curso</option>
+                <?php
+                $query ="SELECT name FROM courses";
+                $result = $con->query($query);
+                if($result->num_rows> 0){
+                    while($optionData=$result->fetch_assoc()){
+                        $option =$optionData['name'];
+                        ?>
+                        <?php
+                        //selected option
+                        if(!empty($name) && $name== $option){
+                            // selected option
+                            ?>
+                            <option value="<?php echo $option; ?>" selected><?php echo $option; ?> </option>
+                            <?php
+                            continue;
+                        }?>
+                        <option value="<?php echo $option; ?>" ><?php echo $option; ?> </option>
+                        <?php
+
+                    }}
+                ?>
+            </select>
+            <br>
+
+            <input type="submit" name="submit">
+        </form>
         <label>ID Profesor:</label>
         <option value="0">Elige un Profesor</option>
         <!-- -->

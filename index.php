@@ -9,21 +9,17 @@
 </head>
 <body>
 <header>
-    <h1>Acceso Web</h1>
+    <h1>Acceso Web a la app de horarios</h1>
 </header>
 <body>
     <div class="container">
         <h2>¿Eres estudiante o administrador?</h2>
 
         <ul>
-            <li><a href="student_login.php"><u>¿Eres alumno?</u></a></li>
-            <li><a href="admin_login.php"><u>¿Eres administrador?</u></a></li>
+            <li><a href="student_login.php"><u>ALUMNO</u></a></li>
+            <li><a href="admin_login.php"><u>ADMINISTRADOR</u></a></li>
         </ul>
 
     </div>
 </body>
-<footer>
-    <hr>
-    <p>copyright</p></p>
-</footer>
 </html>

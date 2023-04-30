@@ -3,28 +3,24 @@
 session_start();
 include 'config.php';
 
-$username = 'root';
-$password = '';
-$database = 'wordpress16';
-$connection = new PDO('mysql:host=localhost;dbname=wordpress16;',$username,$password);
 $id = $_GET['id'];
-$m = "SELECT * FROM students WHERE id = '$id'";
-$modificar = $connection->query($m);
+$q = "SELECT * FROM students WHERE id = '$id'";
+$modificar = $con->query($q);
 $dato = $modificar->fetch();
 if(isset($_POST['editar'])){
     $id = $_POST['id'];
     $username = $_POST['mUsername'];
-    $password = $_POST['mPassword'];
+    $pass = $_POST['mPass'];
     $email = $_POST['mEmail'];
     $name = $_POST['mName'];
     $surname = $_POST['mSurname'];
     $telephone = $_POST['mTelephone'];
     $nif = $_POST['mNif'];
-    $data = $_POST['mFecharegistro'];
+    $date_registered = $_POST['mDate_registered'];
 
-    $actualiza = "UPDATE students SET username = '$username', password = '$password', email = '$email', name = '$name', surname = '$surname', telephone = '$telephone', nif = '$nif', data = '$data' WHERE id = '$id'";
-    $actualizar = $connection->query($actualiza);
-    header("location:students.php");
+    $actualiza = "UPDATE students SET username = '$username', pass = '$pass', email = '$email', name = '$name', surname = '$surname', telephone = '$telephone', nif = '$nif', date_registered = '$date_registered' WHERE id = '$id'";
+    $actualizar = $con->query($actualiza);
+    header("location:panel_students.php");
 }
 
 ?>
@@ -42,8 +38,7 @@ if(isset($_POST['editar'])){
 <div>
     <div>
         <a href="index.php" ><button class="button">Inicio</button></a>
-        <a href="alumnos.php" ><button id="active" class="button">Alumno</button></a>
-
+        <a href="panel_student.php" ><button id="active" class="button">Alumno</button></a>
     </div>
 </div>
 <div class="container">
@@ -51,21 +46,21 @@ if(isset($_POST['editar'])){
     <form class="" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 
         <input type="hidden" name="id" value="<?php echo $dato['id']; ?>">
-        <label>Usuario:</label>
+        <label>Usuario</label>
         <input type="text"  name="mUsername" value="<?php echo $dato['username']; ?>" placeholder="Username" required>
-        <label>Password:</label>
+        <label>Password</label>
         <input type="text"  name="mPassword" value="<?php echo $dato['password']; ?>" placeholder="Password" required>
-        <br><label>Email:</label>
+        <br><label>Email</label>
         <input type="text"  name="mEmail" value="<?php echo $dato['email']; ?>" placeholder="Email" required>
-        <label>Nombre:</label>
+        <label>Nombre</label>
         <input type="text"  name="mName" value="<?php echo $dato['name']; ?>" placeholder="Nombre" required>
-        <br><label>Apellido:</label>
+        <br><label>Apellido</label>
         <input type="text"  name="mSurname" value="<?php echo $dato['surname']; ?>" placeholder="Apellido" required>
-        <label>Telefono:</label>
+        <label>Telefono</label>
         <input type="text"  name="mTelephone" value="<?php echo $dato['telephone']; ?>" placeholder="Telefono" required>
-        <br><label>NIF:</label>
+        <br><label>NIF</label>
         <input type="text"  name="mNif" value="<?php echo $dato['nif']; ?>" placeholder="NIF" required>
-        <input type="hidden"  name="mFecharegistro" value="<?php echo $dato['data']; ?>">
+        <input type="hidden"  name="mDate_registered" value="<?php echo $date_registered['date_registered']; ?>">
         <div class="enviar">
             <br><input class="submit" type="submit" name="editar" value="Modificar">
         </div>

@@ -4,7 +4,7 @@ session_start();
 include 'config.php';
 
 if(isset($_GET['id_course'])) {
-    $id_ = $_GET['id_course'];
+    $id_course = $_GET['id_course'];
     $query = "SELECT * FROM courses WHERE id_course = $id_course";
     $result = mysqli_query($con, $query);
     if (mysqli_num_rows($result) == 1) {
@@ -35,30 +35,12 @@ if (isset($_POST['update'])) {
 }
 ?>
 
-
-
-<html>
-<head>
-    <link rel="stylesheet" type="text/css" href="styles/styles.css">
-    <title> Crear curso </title>
-    <meta charset="utf-8">
-</head>
-<body>
-<header>
-    <h1>Acceso Web</h1>
-</header>
-<nav>
-    <ul>
-        <li><a class="boxnav" href="panel_admin.php">Panel</a></li>
-    </ul>
-</nav>
 <div class="container2">
-                <h1>Editar Curso</h1>
-                <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                <form action="course_create.php" method="POST">
                     <h2>Información del curso</h2>
                     <input type="hidden" name="id_course" value="<?php echo $id_course; ?>>
                     <label>Nombre</label>
-                    <input type="text"  name="name" value="<?php echo $color; ?> required>
+                    <input type="text"  name="name" value="<?php echo $name; ?> required>
                     <label>Descripcion</label>
                     <input type="text"  name="description" value="<?php echo $description; ?> required>
                     <br><label>Fecha Inicio</label>
@@ -72,5 +54,3 @@ if (isset($_POST['update'])) {
                 </form>
 
 </div>
-</body>
-</html>

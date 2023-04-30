@@ -18,7 +18,7 @@
 </div>
 
 <div class="container2b">
-    <h2>Introduzca sus credenciales de estudiante</h2>
+    <h2>Introduzca sus credenciales de estudiante</h2><br>
 
     <!-- Mensaje a imprimir en caso de que de error el login -->
     <?php if (!empty($message)): ?>
@@ -49,7 +49,7 @@
 
             session_start();
 
-            header('location: panel_main.php');
+            header('location: panel_student.php');
         } else {
             echo "invalid email/password";
         }
@@ -63,7 +63,4 @@
 
 
 </body>
-<footer>
-    <hr>
-</footer>
 </html>

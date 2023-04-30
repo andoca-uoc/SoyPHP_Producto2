@@ -3,9 +3,8 @@ session_start();
 include('config.php');
 include('functions.php');
 
-if($_SERVER['REQUEST_METHOD'] == "POST")
-{
-
+if($_SERVER['REQUEST_METHOD'] == "POST") {
+    $id = $_POST['id'];
     $username = $_POST['username'];
     $pass = $_POST['pass'];
     $email = $_POST['email'];
@@ -13,11 +12,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     $surname = $_POST['surname'];
     $telephone = $_POST['telephone'];
     $nif = $_POST['nif'];
+    if (!empty($username) && !empty($pass) && !is_numeric($username)) {
 
-    if(!empty($username) && !empty($pass) && !is_numeric($username))
-    {
-        $id = random_num(11);
-        $query = "INSERT INTO students (id,username,pass,email,name,surname,telephone,nif) values ('$id','$username','$pass','$email','$name','$surname','$telephone','$nif')";
+
+        $query = "INSERT INTO students (id, username, pass, email, name, surname, telephone, nif) values ('$id', '$username', '$pass', '$email', '$name', '$surname', '$telephone')";
 
         mysqli_query($con, $query);
 
@@ -53,6 +51,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 </div>
 <div class="container2b">
     <form class="form" action="student_signup.php" method="post">
+        <input type="hidden" name="id"><br>
         <label>usuario</label><br>
         <input type="text" name="username" placeholder="Introduce tu nombre de usuario"><br>
         <label>password</label><br>
@@ -67,8 +66,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
         <input type="text" name="nif" placeholder="Introduce tu nif"><br>
         <label>teléfono</label><br>
         <input type="text" name="telephone" placeholder="Introduce tu número de teléfono"><br>
+        <label>Fecha registro</label><br>
 
-        <input class="submit" type="submit" value="Enviar"><br>
+
+        <input class="submit" type="submit" value="Registrar"><br>
 
 
     </form>
@@ -76,7 +77,4 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 
 
 </body>
-<footer>
-    <hr>
-</footer>
 </html>

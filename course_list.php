@@ -10,16 +10,17 @@ session_start();
     <meta charset="utf-8">
 </head>
 <body>
-<header>
-    <h1>Acceso Web</h1>
+<header class="admin-header">
+    <h1>Todos los cursos</h1>
+    <nav>
+        <ul>
+            <li><a class="boxnav" href="index.php">Inicio</a></li>
+            <li><a class="boxnav" href="panel_admin.php">Panel</a></li>
+        </ul>
+    </nav>
 </header>
-<nav>
-    <ul>
-        <li><a class="boxnav" href="panel_admin.php">Panel</a></li>
-    </ul>
-</nav>
 <div class="container2">
-    <h2>Tabla de courses</h2>
+    <h2>Tabla de cursos</h2>
                 <table  class="table" >
                     <thead>
                     <th>ID</th>

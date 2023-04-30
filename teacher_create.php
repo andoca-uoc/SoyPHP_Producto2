@@ -27,28 +27,27 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     <meta charset="utf-8">
 </head>
 <body>
-<header>
-    <h1>Acceso Web</h1>
+<header class="admin-header">
+    <h1>Creación de un profesor</h1>
+    <nav>
+        <ul>
+            <li><a class="boxnav" href="index.php">Inicio</a></li>
+            <li><a class="boxnav" href="panel_admin.php">Panel</a></li>
+        </ul>
+    </nav>
 </header>
-<nav>
-    <ul>
-        <li><a class="boxnav" href="panel_admin.php">Panel</a></li>
-    </ul>
-</nav>
 <div class="container2">
                 <h2>Introduce los datos del nuevo profesor</h2>
                 <form class="form" action="teacher_create.php" method="POST">
-                    <label>Nombre:</label>
-                    <input type="text" name="name" placeholder="Introduce el nombre del profesor">
-                    <label>Apellido:</label>
-                    <input type="text" name="surname" placeholder="Introduce el apellido">
-                    <br>
-                    <label>NIF:</label>
-                    <input type="text" name="nif" placeholder="Introduce el NIF">
-                    <label>Telefono:</label>
-                    <input type="text" name="telephone" placeholder="Introduce el teléfono">
-                    <br><h2>Introduce el correo electrónico</h2>
-                    <label>Email:</label>
+                    <label>Nombre:</label><br>
+                    <input type="text" name="name" placeholder="Introduce el nombre del profesor"><br>
+                    <label>Apellido:</label><br>
+                    <input type="text" name="surname" placeholder="Introduce el apellido"><br>
+                    <label>NIF:</label><br>
+                    <input type="text" name="nif" placeholder="Introduce el NIF"><br>
+                    <label>Teléfono</label><br>
+                    <input type="text" name="telephone" placeholder="Introduce el teléfono"><br>
+                    <label>Email</label><br>
                     <input type="text" name="email" placeholder="Introduce el email">
 
                     <div class="enviar">

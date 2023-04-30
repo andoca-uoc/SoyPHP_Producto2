@@ -5,7 +5,7 @@ include('functions.php');
 
 if($_SERVER['REQUEST_METHOD'] == "POST")
 {
-
+    $id_user_admin = $_POST['id_user_admin'];
     $username = $_POST['username'];
     $name = $_POST['name'];
     $email = $_POST['email'];
@@ -13,7 +13,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 
     if(!empty($username) && !empty($email) && !is_numeric($username))
     {
-        $id_user_admin = mt_rand(1, 100);
+
         $query = "INSERT INTO users_admin (id_user_admin,username,name,email,password) values ('$id_user_admin','$username','$name','$email','$password')";
 
         mysqli_query($con, $query);
@@ -61,12 +61,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     <p> <?= $mensaje ?> </p> <!-- Necesario usar la forma de <.?.= para mostrar el contenido de una variable -->
 <?php endif; ?>
 
-</form>
+    </form>
 </div>
-
-
 </body>
-<footer>
-    <hr>
-</footer>
 </html>

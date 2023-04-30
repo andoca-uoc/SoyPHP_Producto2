@@ -10,16 +10,17 @@ session_start();
     <meta charset="utf-8">
 </head>
 <body>
-<header>
-    <h1>Acceso Web</h1>
+<header class="admin-header">
+    <h1>Todas las clases</h1>
+    <nav>
+        <ul>
+            <li><a class="boxnav" href="index.php">Inicio</a></li>
+            <li><a class="boxnav" href="panel_admin.php">Panel</a></li>
+        </ul>
+    </nav>
 </header>
-<nav>
-    <ul>
-        <li><a class="boxnav" href="panel_admin.php">Panel</a></li>
-    </ul>
-</nav>
 <div class="container2">
-    <h2>Tabla de class</h2>
+    <h2>Tabla de clases</h2>
     <table  class="table" >
         <thead>
         <th>id_class</th>
@@ -32,7 +33,7 @@ session_start();
         </thead>
         <tbody>
         <?php
-        $query = "SELECT * FROM courses";
+        $query = "SELECT * FROM class";
         $class_list = mysqli_query($con, $query);
 
         while($row = mysqli_fetch_array($class_list)) { ?>

@@ -31,35 +31,88 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     <title>App PHP</title>
 </head>
 <body>
-
-<header>
-    <h1>Acceso Web</h1>
+<header class="admin-header">
+    <h1>Crear una clase</h1>
+    <nav>
+        <ul>
+            <li><a class="boxnav" href="index.php">Inicio</a></li>
+            <li><a class="boxnav" href="panel_admin.php">Panel</a></li>
+        </ul>
+    </nav>
 </header>
-<nav>
-    <ul>
-        <li><a class="boxnav" href="panel_admin.php">Panel</a></li>
-    </ul>
-</nav>
 <div class="container2">
-    <h1>Crear Clase</h1>
         <form action="class_create.php" method="POST">
             <h2>Información de la clase</h2>
-                <!-- -->
-                <label>Nombre</label>
-                <input type="text" name="name" placeholder="Escriba el nombre de la clase">
-                <!-- -->
-                <label>Color</label>
+                <!--Nombre-->
+                <label>Nombre</label><br>
+                <input type="text" name="name" placeholder="Escriba el nombre de la clase"><br>
+                <!--Color-->
+                <label>Color</label><br>
                 <input type="color" name="color"><br>
-                <!-- -->
-                <label>ID clase</label>
-                <option value="0">Elige un curso</option>
-                 <!-- -->
-                <label>ID Profesor:</label>
-                <option value="0">Elige un Profesor</option>
-                <!-- -->
-                <br><h2>Horario</h2>
-            <!-- -->
+                <!--Elegir un curso para la clase-->
+                <label>Curso</label><br>
+                <select name="courseName">
+                <option value="">Selecciona un curso</option>
+                <?php
+                $query ="SELECT name FROM courses";
+                $result = $con->query($query);
+                if($result->num_rows> 0){
+                    while($optionData=$result->fetch_assoc()){
+                        $option =$optionData['name'];
+                        ?>
+                        <?php
+                        //selected option
+                        if(!empty($name) && $name== $option){
+                            // selected option
+                            ?>
+                            <option value="<?php echo $option; ?>" selected><?php echo $option; ?> </option>
+                            <?php
+                            continue;
+                        }?>
+                        <option value="<?php echo $option; ?>" ><?php echo $option; ?> </option>
+                        <?php
 
+                    }}
+                ?>
+                </select>
+                <br><br>
+                 <!-- -->
+                <label>Profesor</label><br>
+                <select name="teacherName">
+                <option value="">Selecciona un profesor</option>
+                <?php
+                $query ="SELECT name FROM teachers";
+                $result = $con->query($query);
+                if($result->num_rows> 0){
+                    while($optionData=$result->fetch_assoc()){
+                        $option =$optionData['name'];
+                        ?>
+                        <?php
+                        //selected option
+                        if(!empty($name) && $name== $option){
+                            // selected option
+                            ?>
+                            <option value="<?php echo $option; ?>" selected><?php echo $option; ?> </option>
+                            <?php
+                            continue;
+                        }?>
+                        <option value="<?php echo $option; ?>" ><?php echo $option; ?> </option>
+                        <?php
+                    }}
+                ?>
+            </select>
+                <!-- -->
+            <br><hr><br>
+            <h2>Horario</h2>
+            <!-- -->
+            <label>Día de clase</label>
+            <input type="date" name="day">
+            <br>
+            <label>Hora inicio</label>
+            <input type="time" name="time_start">
+
+            <label>Hora fin</label>
+            <input type="time" name="time_end">
 
 
                 <br><input class="submit" type="submit" value="Enviar">
